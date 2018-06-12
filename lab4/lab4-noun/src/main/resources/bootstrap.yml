@@ -3,3 +3,7 @@
 spring:
   application:
     name: lab4-noun
+  cloud:
+    config:
+      uri: http://localhost:8001
+

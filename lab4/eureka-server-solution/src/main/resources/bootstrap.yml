@@ -2,3 +2,9 @@
 spring:
   application:
     name: lab4-eureka-server
+  cloud:
+    config:
+      uri: http://localhost:8001
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
