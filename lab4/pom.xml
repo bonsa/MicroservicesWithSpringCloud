@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+
+	<groupId>org.microservices</groupId>
+	<artifactId>lab4</artifactId>
+	 <version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>eureka-server-solution</module>
+		<module>lab4-subject</module>
+		<module>lab4-verb</module>
+		<module>lab4-article</module>
+		<module>lab4-adjective</module>
+		<module>lab4-noun</module>
+		<module>lab4-sentence</module>
+		<module>lab4-sentence</module>
+
+	</modules>
+
+</project>
