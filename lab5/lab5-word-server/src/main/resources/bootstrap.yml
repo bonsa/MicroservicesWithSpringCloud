@@ -1,0 +1,9 @@
+---
+
+spring:
+  application:
+    name: lab5-word-server
+  cloud:
+    config:
+      uri: http://localhost:8001
+
