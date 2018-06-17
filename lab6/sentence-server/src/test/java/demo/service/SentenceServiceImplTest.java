@@ -1,16 +1,11 @@
 package demo.service;
 
+import demo.dao.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import demo.dao.AdjectiveDaoImpl;
-import demo.dao.ArticleDaoImpl;
-import demo.dao.NounDaoImpl;
-import demo.dao.SubjectDaoImpl;
-import demo.dao.VerbDaoImpl;
-import demo.dao.WordDao;
 import demo.domain.Word;
 
 public class SentenceServiceImplTest {
@@ -28,13 +23,13 @@ public class SentenceServiceImplTest {
 		WordDao verb = Mockito.mock(VerbDaoImpl.class);
 		WordDao article = Mockito.mock(ArticleDaoImpl.class);
 		WordDao adjective = Mockito.mock(AdjectiveDaoImpl.class);
-		WordDao noun = Mockito.mock(NounDaoImpl.class);
+		NounClient noun = Mockito.mock(NounClient.class);
 
 		service.setSubjectService(subject);
 		service.setVerbService(verb);
 		service.setArticleService(article);
 		service.setAdjectiveService(adjective);
-		service.setNounService(noun);
+		service.setNounClient(noun);
 		
 		//	Describe Mock Behaviors:
 		Mockito.when(subject.getWord()).thenReturn(new Word("1"));
