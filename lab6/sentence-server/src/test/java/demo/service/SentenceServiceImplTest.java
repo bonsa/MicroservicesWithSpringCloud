@@ -19,16 +19,16 @@ public class SentenceServiceImplTest {
 		service = new SentenceServiceImpl();
 		
 		//	Establish Mock Dependencies:
-		WordDao subject = Mockito.mock(SubjectDaoImpl.class);
-		WordDao verb = Mockito.mock(VerbDaoImpl.class);
-		WordDao article = Mockito.mock(ArticleDaoImpl.class);
-		WordDao adjective = Mockito.mock(AdjectiveDaoImpl.class);
+		SubjectClient subject = Mockito.mock(SubjectClient.class);
+		VerbClient verb = Mockito.mock(VerbClient.class);
+		ArticleClient article = Mockito.mock(ArticleClient.class);
+		AdjectiveClient adjective = Mockito.mock(AdjectiveClient.class);
 		NounClient noun = Mockito.mock(NounClient.class);
 
-		service.setSubjectService(subject);
-		service.setVerbService(verb);
-		service.setArticleService(article);
-		service.setAdjectiveService(adjective);
+		service.setSubjectClient(subject);
+		service.setVerbClient(verb);
+		service.setArticleClient(article);
+		service.setAdjectiveClient(adjective);
 		service.setNounClient(noun);
 		
 		//	Describe Mock Behaviors:
