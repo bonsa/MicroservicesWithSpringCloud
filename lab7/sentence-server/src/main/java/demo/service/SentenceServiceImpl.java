@@ -12,53 +12,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class SentenceServiceImpl implements SentenceService {
 
-	private VerbClient verbClient;
-	private SubjectClient subjectClient;
-	private AdjectiveClient adjectiveClient;
-	private ArticleClient articleClient;
-	private NounClient nounClient;
-	
+	@Autowired WordService wordService;
 
 	/**
 	 * Assemble a sentence by gathering random words of each part of speech:
 	 */
 	public String buildSentence() {
 		String sentence = "There was a problem assembling the sentence!";
-		sentence =  
-			String.format("%s %s %s %s %s.",
-					subjectClient.getWord().getString(),
-					verbClient.getWord().getString(),
-					articleClient.getWord().getString(),
-					adjectiveClient.getWord().getString(),
-					nounClient.getWord().getString());
+		sentence =
+				String.format("%s %s %s %s %s.",
+						wordService.getSubject().getString(),
+						wordService.getVerb().getString(),
+						wordService.getArticle().getString(),
+						wordService.getAdjective().getString(),
+						wordService.getNoun().getString() );
 		return sentence;
 	}
-
-
-	@Autowired
-	public void setVerbClient(VerbClient verbClient) {
-		this.verbClient = verbClient;
-	}
-
-	@Autowired
-	public void setSubjectClient(SubjectClient subjectClient) {
-		this.subjectClient = subjectClient;
-	}
-
-	@Autowired
-	public void setAdjectiveClient(AdjectiveClient adjectiveClient) {
-		this.adjectiveClient = adjectiveClient;
-	}
-
-	@Autowired
-	public void setArticleClient(ArticleClient articleClient) {
-		this.articleClient = articleClient;
-	}
-
-	@Autowired
-	public void setNounClient(NounClient nounClient) {
-		this.nounClient = nounClient;
-	}	
-	
 	
 }
