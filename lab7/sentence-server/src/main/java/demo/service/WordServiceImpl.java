@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WorlServiceImpl implements WordService {
+public class WordServiceImpl implements WordService {
 
     @Autowired
     VerbClient verbClient;
@@ -21,6 +21,7 @@ public class WorlServiceImpl implements WordService {
     NounClient nounClient;
 
     @Override
+    @HystrixCommand(fallbackMethod="getFallbackSubject")
     public Word getSubject() {
         return subjectClient.getWord();
     }
@@ -42,11 +43,20 @@ public class WorlServiceImpl implements WordService {
     }
 
     @Override
+    @HystrixCommand(fallbackMethod="getFallbackNoun")
     public Word getNoun() {
         return nounClient.getWord();
     }
 
     public Word getFallbackAdjective() {
         return new Word("");
+    }
+
+    public Word getFallbackSubject() {
+        return new Word("Someone");
+    }
+
+    public Word getFallbackNoun() {
+        return new Word("something");
     }
 }
